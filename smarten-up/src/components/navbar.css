@@ -67,9 +67,9 @@
   border-radius: 5px;
 }
 
-.navbar-menu_container p {
+/* .navbar-menu_container p {
   margin: 1rem 0;
-}
+} */
 
 .navbar-menu_container-links-sign {
   display: none;
@@ -104,7 +104,7 @@
     top: 20px;
   }
 
-  .navbar-menu_container-links-sign {
+  /* .navbar-menu_container-links-sign {
     display: block;
-  }
+  } */
 }
