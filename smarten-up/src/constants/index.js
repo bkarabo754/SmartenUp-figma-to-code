@@ -1,9 +1,9 @@
 
 
 export const navLinks = [
-    { href: "#products", label: "PRODUCTS"},
-    { href: "#apps&games", label: "APPS & GAMES"},
-    { href: "#features", label: "FEATURES"},
-    { href: "#support", label: "SUPPORT"},
-    { href: "#about", label: "ABOUT"},
+    { id: "#products", title: "PRODUCTS"},
+    { id: "#apps&games", title: "APPS & GAMES"},
+    { id: "#features", title: "FEATURES"},
+    { id: "#support", title: "SUPPORT"},
+    { id: "#about", title: "ABOUT"},
 ]

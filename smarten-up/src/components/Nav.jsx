@@ -1,81 +1,94 @@
 import React, { useState } from "react";
-import IconBag from "../assets/iconbag.png";
-import NewLogo from "../assets/newLogo.jpg";
-import { FaBars, FaTimes } from "react-icons/fa";
+import close from "../assets/close.svg";
+import menu from "../assets/menu.svg";
+import newLogo from "../assets/newLogo.jpg";
+import iconBag from "../assets/iconBag.png";
 import { navLinks } from "../constants";
+import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import "./navbar.css";
 
 const Nav = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleMenu = () => {
-    setOpen((prev) => !prev);
-  };
-
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
-    <nav className="top-0 left-0 right-0 p-5 z-10">
-      <div className="flex items-center justify-between">
-        <img
-          src={NewLogo}
-          alt="SmartUp Logo"
-          className="w-10 h-10 rounded-full ml-20 mt-8 object-contain"
-        />
-        <h1 className=" text-white text-3xl font-extrabold font-['Ondo'] leading-[34.03px] tracking-wider mr-[1445px] mt-8">
+    <div className="navbar">
+      <div className="navbar_links">
+        <div className="navbar_logo">
+          <img src={newLogo} alt="New Logo" />
+        </div>
+        <h1 className="flex justify-between absolute px-16 sm:px-16 mx-auto -mb-0 items-center font-extrabold text-[#ffffff] font-ondo-bold text-2xl">
           board
         </h1>
-      </div>
-
-      <ul className="hidden lg:flex gap-4 items-center lg:gap-10 -mt-8 ml-[450px] lg:mr-48 font-primary">
-        <li className="font-extrabold cursor-pointer text-white uppercase">
-          products
-        </li>
-        <li className="text-white text-lg cursor-pointer font-['Lato'] uppercase leading-tight tracking-wide">
-          app & games
-        </li>
-        <li className=" text-gray-200 text-lg cursor-pointer font-['Lato'] uppercase leading-tight tracking-wide">
-          features
-        </li>
-        <li className="text-white text-lg cursor-pointer font-['Lato'] uppercase leading-tight tracking-wide">
-          support
-        </li>
-        <li className="text-white text-lg cursor-pointer font-['Lato'] uppercase leading-tight tracking-wide">
-          about
-        </li>
-      </ul>
-      <div className="flex justify-end -mt-6 mr-20 ">
-        <img
-          src={IconBag}
-          alt="Icon Bag"
-          className="sm:block hidden cursor-pointer"
-        />
-      </div>
-
-      <div className="mr-10 flex md:hidden justify-end -mt-3">
-        <button
-          type="button"
-          onClick={handleMenu}
-          className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-400"
-        >
-          <span className="sr-only">Open Main Menu</span>
-          {open === true ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
-      {open ? (
-        <div className="md:hidden">
-          <div className="list-none px-80 pt-3 pb-3 space-y-1 sm:px-3 sm:py-3">
-            {navLinks.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="text-white leading-normal block px-3 py-2 text-base font-medium"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </div>
+        <div className="navbar_container lg:flex gap-2 ml-72 uppercase">
+          <p>
+            <a
+              href="#products"
+              className="font-primary font-extrabold text-[#FFFFFF]"
+            >
+              Products
+            </a>
+          </p>
+          <p>
+            <a href="#app&games" className="text-gray-100">
+              Apps & Games
+            </a>
+          </p>
+          <p>
+            <a href="#features" className="text-gray-100">
+              Feature
+            </a>
+          </p>
+          <p>
+            <a href="#support" className="text-gray-100">
+              Support
+            </a>
+          </p>
+          <p>
+            <a href="#about" className="text-gray-100">
+              About
+            </a>
+          </p>
         </div>
-      ) : null}
-    </nav>
+      </div>
+      <div className="navbar-icon cursor-pointer">
+        <img src={iconBag} alt="" className="sm:block hidden " />
+      </div>
+      <div className="navbar-menu cursor-pointer">
+        {toggleMenu ? (
+          <RiCloseLine
+            color="#fff"
+            size={27}
+            onClick={() => setToggleMenu(false)}
+          />
+        ) : (
+          <RiMenu3Line
+            color="#fff"
+            size={27}
+            onClick={() => setToggleMenu(true)}
+          />
+        )}
+        {toggleMenu && (
+          <div className="navbar-menu_container">
+            <div className="navbar-menu_container-links-sign">
+              <p>
+                <a href="#products">Products</a>
+              </p>
+              <p>
+                <a href="#apps&games">Apps & Games</a>
+              </p>
+              <p>
+                <a href="#possibility">Features</a>
+              </p>
+              <p>
+                <a href="#features">Support</a>
+              </p>
+              <p>
+                <a href="#blog">About</a>
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
